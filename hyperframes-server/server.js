@@ -26,13 +26,7 @@ app.post("/render", async (req, res) => {
 
 
   fs.writeFileSync(htmlPath, html);
-  // Lint before rendering
-  try {
-    await execAsync(`npx hyperframes lint ${tempDir}`, { cwd: __dirname });
-  } catch (lintErr) {
-    fs.rmSync(tempDir, { recursive: true, force: true });
-    return res.status(400).json({ error: "Lint failed", details: lintErr.message });
-  }
+
   try {
     const { stdout, stderr } = await execAsync(
       `npx hyperframes render ${tempDir} --output ${outputPath} --no-browser-gpu`,

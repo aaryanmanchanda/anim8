@@ -10,6 +10,7 @@
   "dependencies": {
     "@hyperframes/producer": "^0.5.7",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "hyperframes": "^0.5.7"
   }
 }
